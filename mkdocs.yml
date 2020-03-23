@@ -1,0 +1,34 @@
+site_name: Django PlayGround
+site_description: Testing place for django apps
+site_author: Mohamed Nesredin
+
+theme:
+  name: material
+
+repo_url: https://github.com/Mohamed-Kaizen/django_playground
+
+nav:
+ - Home: 'index.md'
+
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: Link
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - codehilite:
+      guess_lang: true
+      linenums: true
