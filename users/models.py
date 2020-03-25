@@ -1,3 +1,5 @@
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -11,6 +13,8 @@ def user_upload_to(instance: "CustomUser", filename: str):
 class CustomUser(AbstractUser):
 
     email = models.EmailField(verbose_name=_("email address"), unique=True)
+
+    user_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
     full_name = models.CharField(verbose_name=_("full name"), max_length=300)
 

@@ -44,7 +44,7 @@ class CustomUserAdmin(ExportActionModelAdmin, UserAdmin):
     )
 
     fieldsets = (
-        (None, {"fields": ("username", "password")}),
+        (None, {"fields": ("username", "password", "user_uuid")}),
         (
             _("Personal info"),
             {"classes": ("collapse",), "fields": ("full_name", "email", "picture",),},
@@ -75,6 +75,7 @@ class CustomUserAdmin(ExportActionModelAdmin, UserAdmin):
         "is_active",
         "is_staff",
     )
+    readonly_fields = ("user_uuid",)
 
 
 admin.site.site_title = _("Django PlayGround site admin")
