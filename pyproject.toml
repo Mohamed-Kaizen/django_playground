@@ -26,6 +26,7 @@ psycopg2-binary = "^2.8"
 python-decouple = "^3.3"
 pwned-passwords-django = "^1.4"
 whitenoise = {extras = ["brotli"], version = "^5.0"}
+loguru = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.6"
