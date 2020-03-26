@@ -53,9 +53,10 @@ THIRD_PARTY_APPS = [
     "graphene_django",
     "storages",
     "drf_yasg",
+    "django_filters",
 ]
 
-LOCAL_APPS = ["users.apps.UsersConfig", "analytics.apps.AnalyticsConfig"]
+LOCAL_APPS = ["users.apps.UsersConfig", "analytics.apps.AnalyticsConfig", "blog.apps.BlogConfig"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -236,7 +237,9 @@ DATABASES = {
 # djangorestframework
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",)
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
 # whitenoise

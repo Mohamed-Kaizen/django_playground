@@ -36,6 +36,7 @@ urlpatterns = i18n_patterns(
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain",),
     ),
     path("api/users/", include("users.urls")),
+    path("api/blog/", include("blog.urls")),
     path("api/analytics/", include("analytics.urls")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
