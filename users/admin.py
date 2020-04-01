@@ -47,7 +47,7 @@ class CustomUserAdmin(ExportActionModelAdmin, UserAdmin):
         (None, {"fields": ("username", "password", "user_uuid")}),
         (
             _("Personal info"),
-            {"classes": ("collapse",), "fields": ("full_name", "email", "picture",),},
+            {"classes": ("collapse",), "fields": ("full_name", "email", "picture",)},
         ),
         (
             _("Permissions"),

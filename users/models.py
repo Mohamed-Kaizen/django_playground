@@ -14,7 +14,9 @@ class CustomUser(AbstractUser):
 
     email = models.EmailField(verbose_name=_("email address"), unique=True)
 
-    user_uuid = models.UUIDField(default=uuid.uuid4, editable=False, verbose_name=_("unique id"))
+    user_uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, verbose_name=_("unique id")
+    )
 
     full_name = models.CharField(verbose_name=_("full name"), max_length=300)
 
