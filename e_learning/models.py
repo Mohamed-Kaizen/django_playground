@@ -258,8 +258,6 @@ class Question(models.Model):
 
     question = models.TextField(verbose_name=_("question"))
 
-    # answer = models.CharField(verbose_name=_("answer"), max_length=700)
-
     quiz = models.ForeignKey(
         to=Quiz,
         on_delete=models.CASCADE,
@@ -267,8 +265,6 @@ class Question(models.Model):
         db_index=True,
         related_name="questions",
     )
-
-    slug = models.SlugField(verbose_name=_("slug"), blank=True, unique=True)
 
     created_at = models.DateTimeField(verbose_name=_("created at"), auto_now_add=True)
 
@@ -386,10 +382,3 @@ def quiz_slug_creator(sender: Quiz, instance: Quiz, **kwargs: Dict) -> None:
 
     if not instance.slug:
         instance.slug = unique_slug(title=instance.title)
-
-
-@receiver(pre_save, sender=Question)
-def question_slug_creator(sender: Question, instance: Question, **kwargs: Dict) -> None:
-
-    if not instance.slug:
-        instance.slug = unique_slug(title=instance.question)
