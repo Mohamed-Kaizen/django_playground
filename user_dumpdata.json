@@ -1,0 +1,65 @@
+[
+{
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "argon2$argon2i$v=19$m=512,t=2,p=2$cU1vekRVb0VFVlZC$6JIc0uc5Yt9wDJi3uPqgWQ",
+        "last_login": "2020-04-01T05:15:28.651Z",
+        "is_superuser": true,
+        "username": "mohamed",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-04-01T05:14:46.172Z",
+        "email": "m.n.kaizen@gmail.com",
+        "user_uuid": "6320ea84-2b45-43a8-a908-28fa2e4a155e",
+        "full_name": "",
+        "picture": "images/default/pic.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "argon2$argon2i$v=19$m=512,t=2,p=2$VjgwRmEzelFpUnNW$qdzjh2NAL2Mr2NXG9Xaw+g",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "kaizen",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-04-01T05:16:11.057Z",
+        "email": "mohamednesredin19@gmail.com",
+        "user_uuid": "9cabc223-bf0f-4ffd-8d1c-f92b08286e22",
+        "full_name": "Mohamed Nesredin",
+        "picture": "images/default/pic.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+        "password": "argon2$argon2i$v=19$m=512,t=2,p=2$R24zQWllMXZ4R0cy$1Lglnh8t4GaiDtVQUACIqw",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "mohamed_kaizen",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-04-01T05:16:40.872Z",
+        "email": "mahamed19952030@gmail.com",
+        "user_uuid": "09a546be-3c43-4e8d-a51d-e360378cc6c5",
+        "full_name": "Mohamed Nesredin",
+        "picture": "images/default/pic.png",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

@@ -1,0 +1,16 @@
+[
+{
+    "model": "e_learning.student",
+    "pk": 1,
+    "fields": {
+        "user": "09a546be-3c43-4e8d-a51d-e360378cc6c5"
+    }
+},
+{
+    "model": "e_learning.teacher",
+    "pk": 1,
+    "fields": {
+        "user": "9cabc223-bf0f-4ffd-8d1c-f92b08286e22"
+    }
+}
+]
