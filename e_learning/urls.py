@@ -7,6 +7,9 @@ from .apis import rest
 app_name = "e_learning"
 
 urlpatterns = [
+    path('become-student/', rest.StudentsRegisterView.as_view(), name='become_student'),
+    path('become-teacher/', rest.TeacherRegisterView.as_view(), name='become_teacher'),
+    path('sign-in/', rest.CustomLoginView.as_view(), name='become_student'),
     path("", rest.course_list),
     path("<slug>/enroll/", rest.course_enroll),
     path(

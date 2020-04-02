@@ -3,8 +3,76 @@ from typing import Dict
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from rest_framework.response import Response
+from dj_rest_auth.registration.views import RegisterView
+from dj_rest_auth.views import LoginView
 
-from .. import models, serializers
+from .. import models, serializers, interfaces
+
+
+class CustomLoginView(LoginView):
+    def get_response(self):
+
+        response = super().get_response()
+
+        username = response.data.get("user").get("username")
+
+        user = interfaces.UserInterface().get_user(username=username).get("username")
+
+        student = models.Student.objects.filter(user=user.user_uuid)
+
+        teacher = models.Teacher.objects.filter(user=user.user_uuid)
+
+        if student:
+
+            response.data.update({"is_student": True})
+
+        elif teacher:
+
+            response.data.update({"is_teacher": True})
+
+        else:
+
+            response.data.clear()
+
+        return response
+
+
+class StudentsRegisterView(RegisterView):
+
+    def create(self, request, *args, **kwargs):
+
+        response = super().create(request, *args, **kwargs)
+
+        username = response.data.get("user").get("username")
+
+        user = interfaces.UserInterface().get_user(username=username).get("username")
+
+        student = models.Student(user=user.user_uuid)
+
+        student.save()
+
+        response.data.update({"is_student": True})
+
+        return response
+
+
+class TeacherRegisterView(RegisterView):
+
+    def create(self, request, *args, **kwargs):
+
+        response = super().create(request, *args, **kwargs)
+
+        username = response.data.get("user").get("username")
+
+        user = interfaces.UserInterface().get_user(username=username).get("username")
+
+        student = models.Teacher(user=user.user_uuid)
+
+        student.save()
+
+        response.data.update({"is_teacher": True})
+
+        return response
 
 
 @api_view(["GET"])

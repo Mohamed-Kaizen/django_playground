@@ -12,6 +12,10 @@ class UserInterface:
     def get_username(*, user_id: uuid.UUID) -> Dict[str, Any]:
         return {"username": CustomUser.objects.get(user_uuid=user_id).username}
 
+    @staticmethod
+    def get_user(*, username: str) -> Dict[str, CustomUser]:
+        return {"username": CustomUser.objects.get(username=username)}
+
 
 class AnalyticInterface:
     @staticmethod
