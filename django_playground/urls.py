@@ -9,6 +9,7 @@ from django.views.generic import TemplateView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework_simplejwt.views import TokenRefreshView
 
 from .views import StaffGraphQLView
 
@@ -36,6 +37,9 @@ urlpatterns = i18n_patterns(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain",),
     ),
+    path("api/users/", include("dj_rest_auth.urls")),
+    path("api/users/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/users/register/", include("dj_rest_auth.registration.urls")),
     path("api/users/", include("users.urls")),
     path("api/blog/", include("blog.urls")),
     path("api/analytics/", include("analytics.urls")),
