@@ -28,6 +28,10 @@ pwned-passwords-django = "^1.4"
 whitenoise = {extras = ["brotli"], version = "^5.0"}
 loguru = "^0.4.1"
 django-nested-admin = "^3.2.4"
+drf-typed-views = "^0.2.1"
+pydantic = "^1.4"
+dj-rest-auth = {extras = ["with_social"], version = "^1.0.0"}
+djangorestframework-simplejwt = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.6"
