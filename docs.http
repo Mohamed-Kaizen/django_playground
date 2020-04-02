@@ -1,0 +1,31 @@
+### Login
+POST http://127.0.0.1:8000/api/users/login/
+Content-Type: application/json
+
+{
+    "username": "mohamed",
+    "email": "m.n.kaizen@gmail.com",
+    "password": "1234567899mnm"
+}
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+
+### user detial
+
+GET http://127.0.0.1:8000/api/users/user/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST http://127.0.0.1:8000/api/users/registration/
+Content-Type: application/json
+
+{
+    "username": "moha12121jhkhjkghfgh212fghfgh3medN01",
+    "email": "m1.n.fghfgfhfhfghfghh454545fhfhf@gmail.com",
+    "password1": "jhgjgjghadmin123456789",
+    "password2": "jhgjgjghadmin123456789"
+}
+
+###
