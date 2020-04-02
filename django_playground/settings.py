@@ -55,6 +55,10 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "django_filters",
     "nested_admin",
+    "allauth",
+    "allauth.account",
+    "dj_rest_auth.registration",
+    "dj_rest_auth",
 ]
 
 LOCAL_APPS = [
@@ -120,6 +124,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {
+        "NAME": "pwned_passwords_django.validators.PwnedPasswordsValidator",
+        "OPTIONS": {
+            "error_message": "Oh no — pwned! This password has been seen %(amount)d times before",
+            "help_message": "Your password can't be a commonly used password.",
+        },
+    },
 ]
 
 # STATIC (CSS, JavaScript, Images)
@@ -243,6 +254,10 @@ DATABASES = {
 # djangorestframework
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "dj_rest_auth.utils.JWTCookieAuthentication",
+    ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
@@ -310,6 +325,29 @@ DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropBoxStorage"
 DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN", cast=str)
 
 DROPBOX_ROOT_PATH = "media"
+
+# djangorestframework-simplejwt
+# ------------------------------------------------------------------------------
+SIMPLE_JWT = {
+    "USER_ID_FIELD": "user_uuid",
+}
+
+# dj-rest-auth
+# ------------------------------------------------------------------------------
+REST_USE_JWT = True
+
+REST_AUTH_SERIALIZERS = {
+    "USER_DETAILS_SERIALIZER": "users.serializers.UserDetailsSerializer",
+    "JWT_SERIALIZER": "users.serializers.JWTSerializer",
+}
+
+OLD_PASSWORD_FIELD_ENABLED = True
+
+LOGOUT_ON_PASSWORD_CHANGE = True
+
+# drf-typed-views
+# ------------------------------------------------------------------------------
+DRF_TYPED_VIEWS = {"schema_packages": ["pydantic"]}
 
 # Your settings...
 # ------------------------------------------------------------------------------
