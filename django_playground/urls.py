@@ -10,7 +10,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenRefreshView
-
+from dj_rest_auth.registration.views import VerifyEmailView
 from .views import StaffGraphQLView
 
 schema_view = get_schema_view(
@@ -40,6 +40,7 @@ urlpatterns = i18n_patterns(
     path("api/users/", include("dj_rest_auth.urls")),
     path("api/users/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/users/register/", include("dj_rest_auth.registration.urls")),
+    path('api/users/confirm-email/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
     path("api/users/", include("users.urls")),
     path("api/blog/", include("blog.urls")),
     path("api/analytics/", include("analytics.urls")),
