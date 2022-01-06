@@ -9,7 +9,7 @@ license = "MIT"
 python = "3.8.2"
 argon2-cffi = "^19.2"
 confusable_homoglyphs = "^3.2"
-celery = {extras = ["redis"], version = "^4.4"}
+celery = {extras = ["redis"], version = "^5.2"}
 dj-database-url = "^0.5"
 django = "^3.0"
 djangorestframework = "^3.11"
